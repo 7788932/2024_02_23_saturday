@@ -10,25 +10,24 @@ students = [{'國文': 90, '數學': 88, '英文': 61},
             {'國文': 94, '數學': 67, '英文': 70},
             {'國文': 69, '數學': 87, '英文': 89},
             {'國文': 100, '數學': 75, '英文': 100},
-            {'國文': 100, '數學': 100, '英文': 100}]
-
+            {'國文': 100, '數學': 80, '英文': 90}]
+students
 
 
 
 
 def save_csvfile(fn:str,data:list[dict[str,int]]):
-    '''
-    儲存為csv檔
-    參數fn:str -> 檔案名稱
-    參數data:list[dict] -> dict內的key,必需是[國文,數學,英文]
-    '''
+    
     with open(fn,mode='w',encoding='utf-8',newline='') as csvfile:
-        writer = csv.DictWriter(csvfile,fieldnames=['國文','數學','英文'])
-        writer.writeheader()
-        writer.writerows(data)
-    print(f'{fn}存檔完成')
+        
+        with open(fn,mode='w',encoding='utf-8',newline='') as csvfile:
+            writer = csv.DictWriter(csvfile,fieldnames=['國文','數學','英文'])
+            writer.writeheader()
+            writer.writerows(data)
 
+        print(f'{fn}存檔完成')
 
+    
 fileName = input('請輸入檔案名稱:')
 csvName = f'{fileName}.csv'
 save_csvfile(fn=csvName,data=students)
